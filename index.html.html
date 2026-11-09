@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ACHA2BLE</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="top">
+    <div class="top-track">
+        <span>🚚 Envíos a todo el Perú</span>
+        <span>👨‍👩‍👧‍👦Productos de calidad para tu familia</span>
+        <span>💬 Atención por WhatsApp</span>
+
+        <span>🚚 Envíos a todo el Perú</span>
+        <span>👼Productos de calidad para tu bebé</span>
+        <span>💬 Atención por WhatsApp</span>
+    </div>
+</div>
+<header>
+ <div class="bar">
+  <div class="logo">ACHA <b>2BLE</b></div>
+  <form class="search" onsubmit="return false" role="search"><input id="q" type="search" placeholder="Buscar productos…" aria-label="Buscar productos"><button aria-label="Buscar">🔍</button></form>
+  <button class="cartbtn" id="openCart" aria-label="Abrir carrito"><span class="n" id="cnt">0</span>🛒<span id="hdTot">S/ 0.00</span></button>
+ </div>
+ <nav><a href="#top">🏠 Inicio</a><a href="#productos" data-f="all">Toallas húmedas</a><a href="#productos" data-f="oferta" class="promo">% Promociones</a><a href="#nosotros">Sobre nosotros</a><a href="#contacto" class="cta">Contacto</a></nav>
+</header>
+
+<div class="hero" id="top">
+ <h1>Cuidado y frescura <span>para su mundo</span></h1>
+ <p>Toallas húmedas suaves y de alta calidad para el cuidado diario de tu bebé.</p>
+ <a class="btn" href="#productos">Ver productos →</a>
+ <div class="chips"><span>🛡️ Suaves con la piel</span><span>💧 Práctico formato de 100</span><span>🌿 Aromas a elegir</span></div>
+</div>
+
+<div class="perks">
+ <div class="perk"><i>🚚</i><div><b>Envíos a todo el Perú</b><small>Rápido y seguro</small></div></div>
+ <div class="perk"><i>💳</i><div><b>Pagos seguros</b><small>Yape, Plin, </small></div></div>
+ <div class="perk"><i>🎧</i><div><b>Atención por WhatsApp</b><small>Te ayudamos</small></div></div>
+ <div class="perk"><i>⭐</i><div><b>Productos de calidad</b><small>Para tu bebé</small></div></div>
+</div>
+
+<section id="productos">
+ <div class="head"><h2>Productos destacados</h2><small>.</small></div>
+ <div class="filters" id="filters"></div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section class="about" id="nosotros">
+ <div class="box"><h2>Sobre nosotros</h2><p><b>Nosotros
+
+Somos una empresa dedicada a la comercialización y distribución de productos de consumo. Ofrecemos una amplia variedad de artículos para el hogar, higiene, cuidado personal, bebés, tecnología, accesorios y mucho más.
+
+Nos caracterizamos por buscar constantemente nuevos productos, ofrecer precios competitivos y brindar soluciones prácticas que respondan a las necesidades de nuestros clientes.
+
+Trabajamos para conectar a hogares, emprendedores, comerciantes y distribuidores con productos de calidad, facilitando sus compras mediante una atención confiable, rápida y accesible.
+
+Nuestra visión es crecer, innovar y convertirnos en una empresa referente en variedad y distribución de productos, construyendo relaciones duraderas basadas en la confianza.
+
+**Nuestro compromiso es ofrecerte variedad, calidad y confianza en cada compra.**</b></p></div>
+ <div class="box" id="contacto" style="background:linear-gradient(135deg,var(--soft),#f7e2ee)"><h2>¿Tienes alguna consulta?</h2><p>Escríbenos por WhatsApp. Estamos para ayudarte.</p><a class="wa" id="waHelp" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a></div>
+</section>
+
+<footer><span>© 2026 ACHA2BLE · Tienda en construcción</span><span><a href="#">Privacidad y condiciones</a> &nbsp; <a href="#">Libro de reclamaciones</a></span></footer>
+<a class="fl" id="waFloat" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr" aria-label="Carrito">
+ <div class="dh"><h2>🛒 Tu pedido <small id="dcount"></small></h2><button id="closeCart" aria-label="Cerrar">✕</button></div>
+ <div class="db" id="items"></div>
+ <div class="df" id="form">
+  <div class="tot"><span>Total</span><span id="tot">S/ 0.00</span></div>
+  <div class="two"><input id="nom" placeholder="Nombre *" autocomplete="name"><input id="tel" type="tel" placeholder="Celular *" autocomplete="tel"></div>
+  
+  <input id="dir" placeholder="Dirección / distrito de envío *" autocomplete="street-address">
+  <details class="opt"><summary>＋jhonkaretera@gmail.com</summary><input id="mail" type="email" placeholder="Tu correo" autocomplete="email"><textarea id="nota" rows="1" placeholder="Nota del pedido"></textarea></details>
+  <div class="err" id="err"></div>
+  <div class="send">
+   <button class="s1" id="sWa">💬 WhatsApp</button>
+   <button class="s2" id="sMail">✉️ Correo</button>
+   <button class="s3" id="sBoth">Enviar por ambos</button>
+  </div>
+  <button id="clr" style="background:none;color:var(--mut);text-decoration:underline">Vaciar carrito</button>
+ </div>
+</aside>
+<div class="ov" id="mov"></div>
+<div class="md" id="md" role="dialog" aria-modal="true" aria-label="Detalle del producto"><button class="mx" id="mx" aria-label="Cerrar">✕</button><div id="mb"></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
