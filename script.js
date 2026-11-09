@@ -205,21 +205,101 @@ $("closeCart").onclick=$("ov").onclick=function(){openCart(false)};
 document.addEventListener("keydown",function(e){if(e.key=="Escape"){openCart(false);closeModal()}});
 $("clr").onclick=function(){cart={};renderCart()};
 
-function pedido(){
+/*function pedido(){
  var nom=$("nom").value.trim(),tel=$("tel").value.trim(),dir=$("dir").value.trim();
  if(!Object.keys(cart).length){$("err").textContent="Tu carrito está vacío.";return null}
  if(!nom||!tel||!dir){$("err").textContent="Completa nombre, celular y dirección.";return null}
  if(tel.replace(/\D/g,"").length<9){$("err").textContent="Escribe un celular válido de 9 dígitos.";return null}
 
  $("err").textContent="";
- var L=["*NUEVO PEDIDO*",""];
+ var L=["*🛒NUEVO PEDIDO*",""];
  Object.keys(cart).forEach(function(id){var p=get(id);L.push("• "+cart[id]+" x "+p.n+" (Color: "+vname(id)+") – "+money(p.p*cart[id]))});
  L.push("","*Total: "+money(total().t)+"*","","Cliente: "+nom,"Celular: "+tel);
  if($("mail").value.trim())L.push("Correo: "+$("mail").value.trim());
  L.push("Dirección: "+dir);
  if($("nota").value.trim())L.push("Notas: "+$("nota").value.trim());
  return L.join("\n");
+}*/
+
+
+function pedido(){
+
+  var nom=$("nom").value.trim();
+  var tel=$("tel").value.trim();
+  var dir=$("dir").value.trim();
+
+  if(!Object.keys(cart).length){
+    $("err").textContent="Tu carrito está vacío.";
+    return null;
+  }
+
+  if(!nom||!tel||!dir){
+    $("err").textContent="Completa nombre, celular y dirección.";
+    return null;
+  }
+
+  if(tel.replace(/\D/g,"").length<9){
+    $("err").textContent="Escribe un celular válido de 9 dígitos.";
+    return null;
+  }
+
+  $("err").textContent="";
+
+  var fecha=new Date().toLocaleDateString("es-PE");
+
+  var L=[
+    "🛒 *NUEVO PEDIDO*",
+    "",
+    "Fecha: "+fecha,
+    "",
+    "*DATOS DEL CLIENTE*",
+    "",
+    "Cliente: "+nom,
+    "Celular: "+tel,
+    "Dirección: "+dir,
+    "",
+    "*DETALLE DEL PEDIDO*",
+    ""
+  ];
+
+  Object.keys(cart).forEach(function(id,i){
+
+    var p=get(id);
+    var cantidad=cart[id];
+    var subtotal=p.p*cantidad;
+
+    L.push(
+      (i+1)+". *"+p.n+"*",
+      "",
+      "Cantidad: "+cantidad,
+      "Precio caja: "+money(p.p),
+      "Subtotal: "+money(subtotal),
+      ""
+    );
+
+  });
+
+  L.push(
+    "━━━━━━━━━━━━━━━━",
+    "",
+    "*TOTAL: "+money(total().t)+"*",
+    "",
+    "Gracias por tu compra."
+  );
+
+  if($("mail").value.trim()){
+    L.push("", "Correo: "+$("mail").value.trim());
+  }
+
+  if($("nota").value.trim()){
+    L.push("Notas: "+$("nota").value.trim());
+  }
+
+  return L.join("\n");
 }
+
+
+
 function viaWa(t){window.open("https://wa.me/"+WA_NUMERO+"?text="+encodeURIComponent(t),"_blank")}
 function viaMail(t){location.href="mailto:"+CORREO_TIENDA+"?subject="+encodeURIComponent("Hola, quiero confirmar mi pedido")+"&body="+encodeURIComponent(t.replace(/\*/g,""))}
 function listo(){toast("Pedido enviado ✓ Gracias por tu compra");cart={};renderCart();renderGrid()}
