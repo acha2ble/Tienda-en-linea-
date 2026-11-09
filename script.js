@@ -160,26 +160,56 @@ function renderGrid(){
   '<button class="add" data-add="'+p.id+'"'+(out?" disabled":"")+'>'+(out?"Agotado":"🛒 Agregar")+'</button></div><button class="more" data-open="'+p.id+'">Ver detalles y fotos📹🎞️</button></article>'}).join("");
 }
 function total(){var t=0,n=0;for(var id in cart){t+=get(id).p*cart[id];n+=cart[id]}return{t:t,n:n}}
+
 function renderCart(){
- var T=total();$("cnt").textContent=T.n;$("dcount").textContent="("+T.n+(T.n==1?" producto)":" productos)");$("hdTot").textContent=money(T.t);$("tot").textContent=money(T.t);
- var ids=Object.keys(cart);
- $("items").innerHTML=ids.length?ids.map(function(id){var p=get(id); 
-  /*este codigo lo saque para ver imagenes en el carro de compras*/
-  
-  
-  
-return '<div class="it">'+
-'<div class="mini" style="overflow:hidden;">'+
-(p.img
- ? '<img src="'+p.img+'" alt="'+p.n+'" style="width:100%;height:100%;object-fit:contain;">'
- : '<span>'+p.e+'</span>')+
-'</div>'+
-'<div class="t">'+p.n+'<small>Color: '+vname(id)+' · '+money(p.p)+' c/u</small><strong class="sub">'+money(p.p*cart[id])+'</strong></div>'+
-  '<div class="qty"><button data-c="-1" data-id="'+id+'" aria-label="Menos">−</button><span>'+cart[id]+'</span><button data-c="1" data-id="'+id+'" aria-label="Más">+</button></div>'+
-  '<button class="rm" data-rm="'+id+'" aria-label="Quitar">🗑</button></div>'}).join(""):'<div class="empty">Tu carrito está vacío. Agrega un producto para empezar.</div>';
- $("form").style.display=ids.length?"grid":"none";
- save();
+  var T = total();
+
+  $("cnt").textContent = T.n;
+  $("dcount").textContent = "(" + T.n + (T.n == 1 ? " producto)" : " productos)");
+  $("hdTot").textContent = money(T.t);
+  $("tot").textContent = money(T.t);
+
+  if($("checkoutTot")){
+    $("checkoutTot").textContent = money(T.t);
+  }
+
+  var ids = Object.keys(cart);
+
+  $("items").innerHTML = ids.length
+    ? ids.map(function(id){
+        var p = get(id);
+
+        return '<div class="it">' +
+
+          '<div class="mini" data-open="' + id.split("|")[0] + '" style="overflow:hidden;cursor:zoom-in;">' +
+            (p.img
+              ? '<img src="' + p.img + '" alt="' + p.n + '" style="width:100%;height:100%;object-fit:contain;">'
+              : '<span>' + p.e + '</span>'
+            ) +
+          '</div>' +
+
+          '<div class="t">' +
+            '<strong data-open="' + id.split("|")[0] + '" style="cursor:pointer;">' + p.n + '</strong>' +
+            '<small>Color: ' + vname(id) + ' · ' + money(p.p) + ' c/u</small>' +
+            '<strong class="sub">' + money(p.p * cart[id]) + '</strong>' +
+          '</div>' +
+
+          '<div class="qty">' +
+            '<button data-c="-1" data-id="' + id + '" aria-label="Menos">−</button>' +
+            '<span>' + cart[id] + '</span>' +
+            '<button data-c="1" data-id="' + id + '" aria-label="Más">+</button>' +
+          '</div>' +
+
+          '<button class="rm" data-rm="' + id + '" aria-label="Quitar">🗑</button>' +
+        '</div>';
+      }).join("")
+    : '<div class="empty">Tu carrito está vacío. Agrega un producto para empezar.</div>';
+
+  $("form").style.display = ids.length ? "grid" : "none";
+
+  save();
 }
+
 function openCart(o){$("dr").classList.toggle("open",o);$("ov").classList.toggle("open",o)}
 
 document.addEventListener("click",function(e){
@@ -443,3 +473,37 @@ $("mx").onclick=$("mov").onclick=closeModal;
   try{localStorage.setItem("fb_img",JSON.stringify(extra))}catch(x){toast("Foto agregada, pero no cabe para guardarla")}
   M.i=slides(p).length-1;renderModal()};im.src=r.result};r.readAsDataURL(f)})});*/
 renderFilters();renderGrid();renderCart();
+
+// ===== ABRIR VENTANA FINALIZAR PEDIDO =====
+
+$("finalizeBtn").onclick=function(){
+
+  if(!Object.keys(cart).length){
+    toast("Primero agrega productos al carrito");
+    return;
+  }
+
+  $("checkoutTot").textContent=money(total().t);
+
+  $("checkoutOv").classList.add("open");
+
+};
+
+
+// ===== CERRAR VENTANA =====
+
+function closeCheckout(){
+
+  $("checkoutOv").classList.remove("open");
+
+}
+
+$("checkoutClose").onclick=closeCheckout;
+
+$("checkoutOv").onclick=function(e){
+
+  if(e.target===this){
+    closeCheckout();
+  }
+
+};

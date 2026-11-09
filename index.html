@@ -70,7 +70,24 @@ Nuestra visión es crecer, innovar y convertirnos en una empresa referente en va
 <aside class="dr" id="dr" aria-label="Carrito">
  <div class="dh"><h2>🛒 Tu pedido <small id="dcount"></small></h2><button id="closeCart" aria-label="Cerrar">✕</button></div>
  <div class="db" id="items"></div>
- <div class="df" id="form">
+ <div class="df" id="cartFooter">
+
+  <div class="tot">
+    <span>Total</span>
+    <span id="tot">S/ 0.00</span>
+  </div>
+
+  <button class="finish" id="finalizeBtn">
+    FINALIZAR PEDIDO
+  </button>
+
+  <button id="clr" style="background:none;color:var(--mut);text-decoration:underline">
+    Vaciar carrito
+  </button>
+
+</div>
+ 
+ <!--<div class="df" id="form">
   <div class="tot"><span>Total</span><span id="tot">S/ 0.00</span></div>
   <div class="two"><input id="nom" placeholder="Nombre *" autocomplete="name"><input id="tel" type="tel" placeholder="Celular *" autocomplete="tel"></div>
   
@@ -83,8 +100,54 @@ Nuestra visión es crecer, innovar y convertirnos en una empresa referente en va
    <button class="s3" id="sBoth">Enviar por ambos</button>
   </div>
   <button id="clr" style="background:none;color:var(--mut);text-decoration:underline">Vaciar carrito</button>
- </div>
+ </div>-->
 </aside>
+
+<!-- VENTANA DE FINALIZAR PEDIDO -->
+<div class="checkout-ov" id="checkoutOv">
+
+  <div class="checkout-modal">
+
+    <div class="checkout-header">
+      <h2>Finalizar pedido</h2>
+      <button id="checkoutClose">✕</button>
+    </div>
+
+    <p class="checkout-desc">
+      Completa tus datos para continuar con tu compra.
+    </p>
+
+    <div class="checkoutForm" id="form">
+
+      <div class="two">
+        <input id="nom" placeholder="Nombre *" autocomplete="name">
+        <input id="tel" type="tel" placeholder="Celular *" autocomplete="tel">
+      </div>
+
+      <input id="dir" placeholder="Dirección / distrito de envío *">
+
+      <input id="mail" type="email" placeholder="Correo electrónico (opcional)">
+
+      <textarea id="nota" rows="2" placeholder="Nota del pedido"></textarea>
+
+      <div class="checkout-total">
+        <span>Total de tu pedido</span>
+        <strong id="checkoutTot">S/ 0.00</strong>
+      </div>
+
+      <div class="err" id="err"></div>
+
+      <div class="send">
+        <button class="s1" id="sWa">💬 WhatsApp</button>
+        <button class="s2" id="sMail">✉️ Correo</button>
+        <button class="s3" id="sBoth">Enviar por ambos</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 <div class="ov" id="mov"></div>
 <div class="md" id="md" role="dialog" aria-modal="true" aria-label="Detalle del producto"><button class="mx" id="mx" aria-label="Cerrar">✕</button><div id="mb"></div></div>
 <div class="toast" id="toast" role="status"></div>
