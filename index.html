@@ -22,17 +22,56 @@
 <header>
  <div class="bar">
   <div class="logo">ACHA <b>2BLE</b></div>
-  <form class="search" onsubmit="return false" role="search"><input id="q" type="search" placeholder="Buscar productos…" aria-label="Buscar productos"><button aria-label="Buscar">🔍</button></form>
+  <form class="search" id="sf" role="search">
+  <input
+    id="q"
+    type="search"
+    placeholder="Buscar productos…"
+    aria-label="Buscar productos"
+  >
+  <button type="submit" aria-label="Buscar">🔍</button>
+  </form>
+
   <button class="cartbtn" id="openCart" aria-label="Abrir carrito"><span class="n" id="cnt">0</span>🛒<span id="hdTot">S/ 0.00</span></button>
  </div>
  <nav><a href="#top">🏠 Inicio</a><a href="#productos" data-f="all">Toallas húmedas</a><a href="#productos" data-f="oferta" class="promo">% Promociones</a><a href="#nosotros">Sobre nosotros</a><a href="#contacto" class="cta">Contacto</a></nav>
 </header>
 
 <div class="hero" id="top">
- <h1>Cuidado y frescura <span>para su mundo</span></h1>
- <p>Toallas húmedas suaves y de alta calidad para el cuidado diario de tu bebé.</p>
- <a class="btn" href="#productos">Ver productos →</a>
- <div class="chips"><span>🛡️ Suaves con la piel</span><span>💧 Práctico formato de 100</span><span>🌿 Aromas a elegir</span></div>
+
+  <!-- Fondos que cambiarán automáticamente -->
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('img/bebe1.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/bebe2.png')"></div>
+    <div class="hero-slide" style="background-image: url('img/bebe3.png')"></div>
+  </div>
+
+  <!-- Contenido original -->
+  <div class="hero-content">
+    <h1>Cuidado y frescura <span>para su mundo</span></h1>
+
+    <p><b>Toallas húmedas suaves y de alta calidad para el cuidado diario de tu bebé.</b></p>
+
+    <a class="btn" href="#productos">Ver productos →</a>
+
+    <div class="chips">
+      <span>🛡️ Suaves con la piel</span>
+      <span>💧 Práctico formato de 100</span>
+      <span>🌿 Aromas a elegir</span>
+    </div>
+  </div>
+
+  <!-- Flechas -->
+  <button class="hero-arrow prev" type="button" aria-label="Imagen anterior">❮</button>
+  <button class="hero-arrow next" type="button" aria-label="Imagen siguiente">❯</button>
+
+  <!-- Puntos -->
+  <div class="hero-dots">
+    <button class="active" type="button" aria-label="Imagen 1"></button>
+    <button type="button" aria-label="Imagen 2"></button>
+    <button type="button" aria-label="Imagen 3"></button>
+  </div>
+
 </div>
 
 <div class="perks">
@@ -60,7 +99,13 @@ Trabajamos para conectar a hogares, emprendedores, comerciantes y distribuidores
 Nuestra visión es crecer, innovar y convertirnos en una empresa referente en variedad y distribución de productos, construyendo relaciones duraderas basadas en la confianza.
 
 **Nuestro compromiso es ofrecerte variedad, calidad y confianza en cada compra.**</b></p></div>
- <div class="box" id="contacto" style="background:linear-gradient(135deg,var(--soft),#f7e2ee)"><h2>¿Tienes alguna consulta?</h2><p>Escríbenos por WhatsApp. Estamos para ayudarte.</p><a class="wa" id="waHelp" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a></div>
+ <div class="box" id="contacto" style="background:linear-gradient(135deg,var(--soft),#f7e2ee)"><h2>¿Tienes alguna consulta?</h2><p>Escríbenos por WhatsApp. Estamos para ayudarte.</p><a class="wa" id="waHelp" target="_blank" rel="noopener">💬 Hablar por WhatsApp</a>
+ <a class="wa wa-group" id="waGroup"
+       href="https://chat.whatsapp.com/TU_ENLACE"
+       target="_blank" rel="noopener">
+        👨‍👩‍👧‍👦 Unirme al grupo de WhatsApp
+    </a>
+</div>
 </section>
 
 <footer><span>© 2026 ACHA2BLE · Tienda en linea</span><span><a href="#">Privacidad y condiciones</a> &nbsp; <a href="#">Libro de reclamaciones</a></span></footer>

@@ -136,10 +136,22 @@ function renderFilters(){
  var f=[["all","Todos"],["oferta","Ofertas"],["fav","Favoritos ♥"]];
  $("filters").innerHTML=f.map(function(a){return '<button data-f="'+a[0]+'" class="'+(filter==a[0]?"on":"")+'">'+a[1]+'</button>'}).join("");
 }
-function renderGrid(){
- var q=$("q").value.trim().toLowerCase();
- var list=P.filter(function(p){
-  if(q&&(p.n+p.d).toLowerCase().indexOf(q)<0)return false;
+function normalizar(texto) {
+  return String(texto)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function renderGrid() {
+var q = normalizar($("q").value);
+
+var list = P.filter(function(p) {
+  var textoProducto = normalizar(p.n + " " + p.d);
+
+  if (q && !textoProducto.includes(q)) return false;
+  
   if(filter=="oferta")return !!p.o;
   if(filter=="fav")return favs[p.id];
   return true});
@@ -229,7 +241,15 @@ document.addEventListener("click",function(e){
  if(d.c){var id=d.id,n=cart[id]+ +d.c;if(n<1)delete cart[id];else if(n<=get(id).s)cart[id]=n;else toast("Stock máximo alcanzado");renderCart();return}
  if(d.rm){delete cart[d.rm];renderCart()}
 });
-$("q").addEventListener("input",renderGrid);
+$("q").addEventListener("input", renderGrid);
+
+document.querySelector(".search").addEventListener("submit", function(e) {
+  e.preventDefault();
+  renderGrid();
+  $("productos").scrollIntoView({ behavior: "smooth" });
+});
+
+
 $("openCart").onclick=function(){openCart(true)};
 $("closeCart").onclick=$("ov").onclick=function(){openCart(false)};
 document.addEventListener("keydown",function(e){if(e.key=="Escape"){openCart(false);closeModal()}});
@@ -371,7 +391,7 @@ function stage(p,s,c){
   '<div style="padding:18px"><div class="big" style="font-size:1.7rem">Detalles del producto</div>Imagen de ejemplo: aquí irá tu foto explicativa.</div>';
  return '<div class="stage" style="background:linear-gradient(135deg,'+c[0]+','+c[1]+')">'+h+'</div>'}*/
 
-function stage(p,s,c){
+/*function stage(p,s,c){
 
  if(s.t=="img"){
   return '<div class="stage">'+
@@ -389,6 +409,27 @@ function stage(p,s,c){
   '<div class="big">'+p.n+'</div>'+
   '<p>'+p.d+'</p>'+
   '</div>';
+}*/
+
+
+function stage(p,s,c){
+
+    if(s.t=="img"){
+        return '<div class="stage">'+
+            '<img src="'+s.u+'" alt="'+p.n+'">'+
+            '</div>';
+    }
+
+    if(s.t=="pack" && p.img){
+        return '<div class="stage">'+
+            '<img src="'+p.img+'" alt="'+p.n+'">'+
+            '</div>';
+    }
+
+    return '<div class="stage">'+
+        '<div class="big">'+p.n+'</div>'+
+        '<p>'+p.d+'</p>'+
+        '</div>';
 }
 
 
@@ -507,3 +548,55 @@ $("checkoutOv").onclick=function(e){
   }
 
 };
+
+
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDots = document.querySelectorAll(".hero-dots button");
+const heroNext = document.querySelector(".hero-arrow.next");
+const heroPrev = document.querySelector(".hero-arrow.prev");
+
+let heroIndex = 0;
+let heroTimer;
+
+function showHeroSlide(index) {
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+    heroDots[i].classList.toggle("active", i === index);
+  });
+
+  heroIndex = index;
+}
+
+function nextHeroSlide() {
+  showHeroSlide((heroIndex + 1) % heroSlides.length);
+}
+
+function prevHeroSlide() {
+  showHeroSlide(
+    (heroIndex - 1 + heroSlides.length) % heroSlides.length
+  );
+}
+
+function startHeroTimer() {
+  clearInterval(heroTimer);
+  heroTimer = setInterval(nextHeroSlide, 5000);
+}
+
+heroNext.addEventListener("click", () => {
+  nextHeroSlide();
+  startHeroTimer();
+});
+
+heroPrev.addEventListener("click", () => {
+  prevHeroSlide();
+  startHeroTimer();
+});
+
+heroDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    showHeroSlide(index);
+    startHeroTimer();
+  });
+});
+
+startHeroTimer();
