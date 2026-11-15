@@ -9,10 +9,30 @@ h1,h2,h3,.logo{font-family:'Baloo 2',system-ui,sans-serif;margin:0;line-height:1
 button{font:inherit;cursor:pointer;border:0;color:inherit}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--pink);outline-offset:2px}
-.top{background:var(--soft);font-size:.85rem;display:flex;justify-content:space-between;gap:12px;padding:8px 5vw;flex-wrap:wrap}
+
+.top {
+    font-weight: 800;
+    color: rgb(19, 33, 77);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.05px;
+}
+
+.top{
+  
+  background-image: url("img/Imagen2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  font-size:.95rem;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 5vw;
+  flex-wrap:wrap}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
 .bar{
-  background: rgb(171, 223, 255);
+  background: white;
   display:flex;
   align-items:center;
   gap:16px;padding:
@@ -26,7 +46,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .cartbtn{position:relative;background:none;font-weight:700;padding:6px 10px;border-radius:12px;display:flex;flex-direction:column;align-items:center;font-size:.85rem}
 .cartbtn .n{position:absolute;top:-4px;right:2px;background:var(--pink);color:#fff;border-radius:99px;min-width:20px;height:20px;font-size:.75rem;display:grid;place-items:center}
 nav{
-  background: rgb(252, 181, 151);
+  background: ;
   display:flex;
   gap:6px 22px;
   padding:0 5vw 10px;
@@ -37,7 +57,7 @@ nav .promo{
   color:var(--pink)}
 nav .cta{background:var(--pink);color:#fff;border-radius:99px;padding:8px 20px}
 .hero{
-  opacity: 50;
+  opacity: ;
   padding:7vw 5vw}
 .hero h1{font-size:clamp(2.3rem,7vw,4.2rem);font-weight:800;max-width:11em}
 .hero h1 span{color:var(--pink);display:block}
@@ -163,7 +183,15 @@ footer{background:#0b1226;color:#fff;padding:26px 5vw;display:flex;justify-conte
 .logo{font-size:2.2rem}
 .cartbtn{flex-direction:row;gap:8px;background:var(--pink);color:#fff;border-radius:99px;padding:10px 20px;font-size:1rem;box-shadow:var(--shadow)}
 .cartbtn .n{background:#fff;color:var(--pink);top:-8px;right:-6px;box-shadow:0 2px 6px rgba(0,0,0,.25);font-weight:800}
-nav{background:rgb(171, 223, 255);padding:10px 5vw;gap:10px;flex-wrap:wrap;justify-content:center;overflow:visible;border-top:1px solid var(--line)}
+nav{
+  opacity: ;
+  background: white;
+  padding:10px 5vw;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  overflow:visible;
+  border-top:1px solid var(--line)}
 nav a{background:var(--card);border:1px solid var(--line);border-radius:99px;padding:10px 20px;font-size:1.05rem;box-shadow:var(--shadow);transition:background .15s,color .15s}
 nav a:hover{background:var(--pink);color:black}
 nav .promo{border-color:var(--pink)}
@@ -187,7 +215,12 @@ nav .cta{background:var(--pink);border-color:var(--pink);color:#fff}
 .logo{font-size:1.7rem}
 .search input{padding:9px 12px}
 .cartbtn{padding:8px 16px;font-size:.95rem}
-nav{padding:6px 5vw;gap:6px;flex-wrap:nowrap;justify-content:center;overflow-x:auto;scrollbar-width:none}
+nav{padding:6px 5vw;
+  gap:6px;
+  flex-wrap:nowrap;
+  justify-content:center;
+  overflow-x:auto;
+  scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 nav a{padding:6px 14px;font-size:.92rem;box-shadow:none;flex:none}
 @media(max-width:700px){nav{justify-content:flex-start}nav a{padding:6px 12px;font-size:.88rem;flex:none}}
