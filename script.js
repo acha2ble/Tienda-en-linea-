@@ -50,8 +50,11 @@ var P=[
     e: "📦",                // Emoji del producto
     img: "img/scoter1.jpeg",                // Imagen principal
     fotos: [                // Fotografías adicionales
-        "",
-        ""
+        "img/as.jpeg",
+        "img/as2.jpeg",
+        "img/as3.jpeg",
+        "img/as4.jpeg",
+        "img/as5.jpeg"
     ]
 },
  
@@ -70,8 +73,12 @@ var P=[
     e: "📦",                // Emoji del producto
     img: "img/scoter2.jpeg",                // Imagen principal
     fotos: [                // Fotografías adicionales
-        "",
-        ""
+        "img/scotertod.jpeg",
+        "img/arasin.jpeg",
+        "img/biesin.jpeg",
+        "img/kitsin.jpeg",
+        "img/miksin.jpeg",
+        "img/minsin.jpeg"
     ]
 },
  
