@@ -78,7 +78,8 @@ var P=[
         "img/biesin.jpeg",
         "img/kitsin.jpeg",
         "img/miksin.jpeg",
-        "img/minsin.jpeg"
+        "img/minisin.jpeg"
+        
     ]
 },
  

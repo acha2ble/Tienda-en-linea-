@@ -19,7 +19,7 @@ a{color:inherit}
 
 .top{
   
-  background-image: url("img/Imagen2.jpg");
+  
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,8 +31,9 @@ a{color:inherit}
   padding:8px 5vw;
   flex-wrap:wrap}
 header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+
 .bar{
-  background: white;
+  
   display:flex;
   align-items:center;
   gap:16px;padding:
@@ -46,7 +47,7 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:va
 .cartbtn{position:relative;background:none;font-weight:700;padding:6px 10px;border-radius:12px;display:flex;flex-direction:column;align-items:center;font-size:.85rem}
 .cartbtn .n{position:absolute;top:-4px;right:2px;background:var(--pink);color:#fff;border-radius:99px;min-width:20px;height:20px;font-size:.75rem;display:grid;place-items:center}
 nav{
-  background: ;
+ 
   display:flex;
   gap:6px 22px;
   padding:0 5vw 10px;
@@ -592,4 +593,49 @@ nav a{padding:6px 14px;font-size:.92rem;box-shadow:none;flex:none}
 .hero-dots button.active {
   background: white;
   transform: scale(1.25);
+}
+
+
+/* ANIMACIÓN DE FONDOS */
+
+@keyframes fondoDerecha {
+  from {
+    background-position: 0 center;
+  }
+  to {
+    background-position: 300px center;
+  }
+}
+
+@keyframes fondoIzquierda {
+  from {
+    background-position: 300px center;
+  }
+  to {
+    background-position: 0 center;
+  }
+}
+
+/* Primera franja */
+.top {
+  background-image: url("img/Imagen2.jpg");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: fondoDerecha 12s linear infinite;
+}
+
+/* Segunda franja */
+.bar {
+  background-image: url("img/Imagen2.jpg");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: fondoIzquierda 12s linear infinite;
+}
+
+/* Tercera franja */
+nav {
+  background-image: url("img/Imagen2.jp");
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+  animation: fondoDerecha 12s linear infinite;
 }
