@@ -626,7 +626,7 @@ nav a{padding:6px 14px;font-size:.92rem;box-shadow:none;flex:none}
 
 /* Segunda franja */
 .bar {
-  background-image: url("img/Imagen2.jpg");
+  background-image: url("img/Imagen2.jp");
   background-repeat: repeat-x;
   background-size: auto 100%;
   animation: fondoIzquierda 12s linear infinite;
@@ -634,8 +634,8 @@ nav a{padding:6px 14px;font-size:.92rem;box-shadow:none;flex:none}
 
 /* Tercera franja */
 nav {
-  background-image: url("img/Imagen2.jp");
+  background-image: url("img/Imagen2.jpg");
   background-repeat: repeat-x;
   background-size: auto 100%;
-  animation: fondoDerecha 12s linear infinite;
+  animation: fondoIzquierda 12s linear infinite;
 }
