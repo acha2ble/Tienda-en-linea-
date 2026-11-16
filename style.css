@@ -639,3 +639,10 @@ nav {
   background-size: auto 100%;
   animation: fondoIzquierda 12s linear infinite;
 }
+
+
+.descripcion-producto {
+    white-space: pre-line;
+    line-height: 1.6;
+    margin: 8px 0;
+}

@@ -83,54 +83,140 @@ var P=[
     ]
 },
  
- 
- /*{id:5,n:"Toallas Húmedas FABIBLUU Premium – 100 unidades",d:"Versión Premium en formato de 100 unidades. Disponible próximamente.",p:9.9,s:0,c:["#c9b2f2","#9a73e0"],q:100,e:"🐻"},
+  {
+    id: 5,                  // Número único del producto
+    n: "PISOS PLEGABLES-ALFONBRA",                  // Nombre del producto
+    d: `Alfombra Infantil Plegable 🧸CARACTERÍSTICAS PRINCIPALES
+        🧸 Material: Espuma XPE
+        📏 Medidas: 180 × 200 cm
+        📐 Grosor: 2 cm
+        🎨 Diseño: Infantil con estampados coloridos
+        📦 Presentación: Plegable con asa de transporte
+        MODOS DE USO
+        ✅ Zona de juegos
+        ✅ Actividades y aprendizaje`,                  // Descripción
+    p: 650.0,                // Precio actual
+    o: 750,                // Precio anterior (opcional, para ofertas)
+    s: 99999999,                   // Cantidad disponible en stock
+    c: ["#6cb7f5", "#2f7fe0"], // Colores decorativos
+    q: 10,                   // Cantidad de unidades por paquete
+    e: "📦",                // Emoji del producto
+    img: "img/piso1.png",                // Imagen principal
+    fotos: [                // Fotografías adicionales
+        "img/piso2.png",
+        "img/piso3.png"
+        
+    ]
+},
  
  {id:6,
- n:"Pilas AA Alcalinas – Pack de 4",
- d:"Pilas alcalinas de larga duración.",
- p:8.90,
- s:100,
- c:["#6cb7f5","#2f7fe0"],
- q:4,
- e:"🔋"},
+  n:"SQUISHY-MANTEQUILLA CON CERA DE 4.OZ",
+  d: `squishy relajante conn cera aplastable
+      🧈 Diseño realista en forma de mantequilla.
+      ✋ Suave y aplastable.
+      ✊Con cera`,
+  p:1440.,
+  o:0.0,
+  s:99999999/*cantidad disponible o agotado para que nose pueda comprar*/,
+  c:["#752341","#6bbc2e"],
+  q:288,
+  e:"🧸",
+  img:"img/mant1.png",
+  fotos:[
+    "img/mant2.png",
+    "img/mant3.png"
+    
+  ]
+  
+},
 
  {id:7,
- n:"Guantes de Nitrilo – Caja x 100",
- d:"Guantes de nitrilo para uso profesional.",
- p:25.90,
- s:80,
- c:["#8fe3c4","#2fb68a"],
- q:100,
- e:"🧤"},
+  n:"SQUISHY-FRESA GIGANTE",
+  d: `Squishy de Fresa - gigante 
+  🍓 Diseño realista de fresa.
+- 🍓 Aroma agradable a fresa.
+- ✋ Suave, flexible y aplastable.
+- 🎁 Presentación en caja individual.
+- 👧 Edad recomendada: 6 años a más.`,
+  p:528.0,
+  o:0.0,
+  s:99999999/*cantidad disponible o agotado para que nose pueda comprar*/,
+  c:["#752341","#6bbc2e"],
+  q:288,
+  e:"🧸",
+  img:"img/fresa1.png",
+  fotos:[
+    "img/fresa2.png",
+    
+    
+  ]
+  
+},
 
- {id:8,
- n:"Mascarillas – Pack x 50",
- d:"Mascarillas para protección y uso diario.",
- p:12.50,
- s:60,
- c:["#c9b2f2","#9a73e0"],
- q:50,
- e:"😷"},
-{id:9,
-  n:"SCOOTER DISNEY CON ASIENTO – caja x 10 ",
-  d:"scooter con diseños surtidos.",
-  p:710.00,
-  s:100,
-  c:["#6cb7f5","#2f7fe0"],
-  q:4,
-  e:"🛵"
+{id:8,
+  n:"SQUISHY-QUESO GIGANTE",
+  d: `Squishy de queso - gigante 
+  🧀 Diseño realista de queso con agujeros.
+✋ Suave, flexible y aplastable.
+😌 Ideal para jugar y relajarse.
+🎁 Presentación en caja individual.
+👶 Edad recomendada: 3 años a más.`,
+  p:528.0,
+  o:0.0,
+  s:99999999/*cantidad disponible o agotado para que nose pueda comprar*/,
+  c:["#752341","#6bbc2e"],
+  q:288,
+  e:"🧸",
+  img:"img/ques1.png",
+  fotos:[
+    "img/ques2.png",
+  ]
+  
 },
 {id:9,
-  n:"SCOOTER DISNEY NORMAL – caja x 10 ",
-  d:"scooter con diseños surtidos.",
-  p:620.0,
-  s:100,
-  c:["#6cb7f5","#2f7fe0"],
-  q:5,
-  e:"🛵"
+  n:"SQUISHY-MINI FRUTAS",
+  d: `Squishy mini frutas  
+  🍓 Diseños variados de mini frutas coloridas.
+  ✋ Suaves, flexibles y aplastables.
+  🌈 Diferentes formas y colores sorpresa.
+  😌 Ideales para jugar y relajarse.
+  👶 Edad recomendada: 3 años a más.`,
+  p:864.0,
+  o:0.0,
+  s:99999999/*cantidad disponible o agotado para que nose pueda comprar*/,
+  c:["#752341","#6bbc2e"],
+  q:288,
+  e:"🧸",
+  img:"img/frut1.png",
+  fotos:[
+    "img/frut2.png",
+  ]
+  
+},
+{id:10,
+  n:"SQUISHY-MINI FRUTAS",
+  d: `Squishy mini frutas  
+  🍓 Diseños variados de mini frutas coloridas.
+  ✋ Suaves, flexibles y aplastables.
+  🌈 Diferentes formas y colores sorpresa.
+  😌 Ideales para jugar y relajarse.
+  👶 Edad recomendada: 3 años a más.`,
+  p:864.0,
+  o:0.0,
+  s:99999999/*cantidad disponible o agotado para que nose pueda comprar*/,
+  c:["#752341","#6bbc2e"],
+  q:288,
+  e:"🧸",
+  img:"img/frut1.png",
+  fotos:[
+    "img/frut2.png",
+  ]
+  
+},
 
-},*/
+
+
+
 ];
 var cart={},favs={},filter="all",qtys={};
 function money(v){return "S/ "+v.toFixed(2)}
@@ -173,7 +259,10 @@ var list = P.filter(function(p) {
   '<img src="'+(p.img||"imagenes/sin-imagen.jpg")+'" alt="'+p.n+'" style="width:100%;height:100%;object-fit:contain;">'+
   /*'<em>'+p.q+'</em>'+*/
   '</div>'+/* este codigo fue agregado por jhon*/
-  '<h3 data-open="'+p.id+'">'+p.n+'</h3><p>'+p.d+'</p>'+
+  
+  '<h3 data-open="'+p.id+'">'+p.n+'</h3>'+
+  '<p class="descripcion-producto">'+p.d+'</p>'+
+
   '<div class="price">'+money(p.p)+(p.o?'<s>'+money(p.o)+'</s>':'')+'</div>'+
   '<div class="stk '+(out?"out":low?"low":"")+'">'+(out?"Agotado":low?"Quedan "+p.s:"Disponible")+'</div>'+
   '<div class="row"><div class="qty"><button data-q="-1" data-id="'+p.id+'" aria-label="Menos">−</button><span>'+k+'</span><button data-q="1" data-id="'+p.id+'" aria-label="Más">+</button></div>'+
